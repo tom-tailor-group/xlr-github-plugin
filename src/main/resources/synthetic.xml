@@ -169,4 +169,30 @@
         <property name="refHash" category="output"/>
     </type>
 
+    <type type="github.Compare" extends="github.Task">
+        <property name="scriptLocation" hidden="true" default="xlr/github/Compare.py"/>
+
+        <property name="organization" category="input" required="false"/>
+        <property name="repositoryName" category="input"/>
+        <property name="base" category="input" required="true"
+                  description="The name of the base branch you want to compare with. "/>
+        <property name="head" category="input" default="master" required="true"
+                  description="The name of the target branch you want to compare with."/>
+
+        <property name="comparisonLog" category="output" kind="list_of_string" description="The commit log diff" />
+    </type>
+
+    <type type="github.Compare" extends="github.Task">
+        <property name="scriptLocation" hidden="true" default="xlr/github/Compare.py"/>
+
+        <property name="organization" category="input" required="false"/>
+        <property name="repositoryName" category="input"/>
+        <property name="base" category="input" required="true"
+                  description="The name of the base branch you want to compare with. "/>
+        <property name="head" category="input" default="master" required="true"
+                  description="The name of the target branch you want to compare with."/>
+
+        <property name="comparisonLog" category="output" kind="list_of_string" description="The commit log diff" />
+    </type>
+
 </synthetic>

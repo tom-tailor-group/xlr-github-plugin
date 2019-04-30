@@ -14,7 +14,11 @@ g_client = GithubClient(server)
 g = g_client.get_github_client(locals())
 repo = g_client.get_repo(g, organization, repositoryName)
 
-pull = repo.create_pull(title=title, body=body, base=base, head=head)
-print "PR [%s] has been created" % pull.number
-pullRequestNumber = pull.number
+comparison = repo.compare(base=base, head=head)
+comparisonLog = []
+for commit in comparison.commits:
+ comparisonLog.append(commit.commit.message)
+
+print "Total commits: [%s]" % comparison.total_commits
+print comparisonLog
 
